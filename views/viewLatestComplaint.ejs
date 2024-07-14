@@ -1,0 +1,43 @@
+<%- include('./partials/headers.ejs') %>
+
+    <body>
+        <%- include('./partials/nav.ejs') %>
+            <div class="container mx-4"
+                style="display: flex; flex-direction: row-reverse; justify-content:space-between;margin-top: 100px; ">
+
+                <%- include('./partials/sidebar.ejs') %>
+                    <div class="container">
+                        <div style="margin-left: 195px;margin-top: 50px;">
+
+                            <% if (locals.message) { %>
+                                <h5 style="text-align: start;font-size: xxx-large;font-weight: bold;">
+                                    <%= message %>
+                                </h5>
+                                <% } %>
+
+                                    <% if (locals.complaint) { %>
+                                        <div class="card m-4" style="max-width: 400px;">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <%= complaint.status %>
+                                                </h5>
+                                                <p class="card-text">
+                                                    <%= complaint.complaint %>
+                                                </p>
+                                            </div>
+                                            <div class="card-footer">
+                                                <small class="text-muted">
+                                                    <%= complaint.createdAt.toDateString() %>
+                                                </small>
+                                            </div>
+                                        </div>
+                                        
+                                    <% } %>
+                                        </div>
+                        </div>
+                    </div>
+    </body>
+
+
+
+    <%- include('./partials/footer.ejs') %>

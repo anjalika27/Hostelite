@@ -1,0 +1,19 @@
+<%- include('../partials/headers.ejs') %>
+
+    <body>
+        <form action="/admin/addNotice" method="post">
+            <div class="container m-4" style="max-width: 500px;">
+                <h3>Add Notice</h3>
+                <label for="title" style="margin-top: 2px;">Title</label>
+                <input type="text" name="title">
+                <div class="form-group" style="margin-top: 2%;">
+                    <label>Complaint</label>
+                    <textarea type="text" class="form-control" style="margin-top: 1%;border-width: 3px;"
+                        name="text" placeholder="Type..."></textarea>
+                </div>
+                <button type="submit" style="margin-top: 2%;">Add</button>
+            </div>
+        </form>
+    </body>
+
+    </html>

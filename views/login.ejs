@@ -1,0 +1,29 @@
+<%- include('./partials/headers.ejs') %>
+
+    <body>
+
+        <h3 style="text-align: center;font-size: xxx-large;font-weight: bold;margin: 2%;">Login</h3>
+
+        <div class="container mt-5">
+            <form class="col-6 mx-auto card p-3 shadow-lg" method="POST" action="/login">
+
+                <div class="form-group" style="margin-top: 1%;">
+                    <label for="exampleInputEmail1" style="margin-top: 1%;">Roll No.</label>
+                    <input type="text" class="form-control" placeholder="Enter Roll no" style="margin-top: 1%;"
+                        name="rollno">
+                </div>
+                <div class="form-group" style="margin-top: 1%;">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+                        style="margin-top: 1%;" name="password">
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary" style="margin-top: 1.5%;width: 305px;">Login</button>
+                    <button type="submit" class="btn btn-primary" style="margin-top: 1.5%;width: 305px;"><a
+                            href="/signup" style="color: aliceblue;text-decoration: none;">Signup</a></button>
+                </div>
+            </form>
+        </div>
+    </body>
+
+    <%- include('./partials/footer.ejs') %>

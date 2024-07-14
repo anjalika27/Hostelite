@@ -1,0 +1,39 @@
+
+<%- include('../partials/headers.ejs') %>
+
+    <body>
+        <h3 class="m-4">All Complaints</h3>
+        <table class="table m-4 p-4" style="max-width: 1500px;margin: 2%;;">
+            <thead>
+                <tr>
+                    <th scope="col">Sno.</th>
+                    <th scope="col">Rollno</th>
+                    <th scope="col" style="text-align: center;">Complaint</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Accept</th>
+                    <th scope="col">Reject</th>
+                </tr>
+            </thead>
+            <% if (locals.complaints) { %>
+                <% complaints.forEach((item,ind) => { %>
+                    <tbody>
+                        <tr>
+                            <th scope="row"><%= ind + 1 %></th>
+                            <td><%= item.rollno %></td>
+                            <td><%= item.complaint %></td>
+                            <td><%= item.status %></td>
+                            <td>
+                                <a href=<%= `/admin/acceptComplaint/${item._id}` %> style="text-decoration: none;"><button>Accept</button></a>
+                            </td>
+                            <td>
+                                <a href=<%= `/admin/rejectComplaint/${item._id}` %> style="text-decoration: none;"><button>Reject</button></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                <% }) %>
+            <% } %>
+        </table>
+        
+    </body>
+
+</html>

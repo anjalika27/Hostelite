@@ -1,0 +1,38 @@
+<%- include('../partials/headers.ejs') %>
+
+    <body>
+        <h3 class="m-4">All Students</h3>
+        <table class="table m-4 p-4" style="max-width: 1500px;margin: 2%;;">
+            <thead>
+                <tr>
+                    <th scope="col">Sno.</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Rollno</th>
+                </tr>
+            </thead>
+            <% if (locals.students) { %>
+                <% students.forEach((item,ind)=> { %>
+                    <tbody>
+                        <tr>
+                            <th scope="row">
+                                <%= ind + 1 %>
+                            </th>
+                            <td>
+                                <%= item.username %>
+                            </td>
+                            <td>
+                                <%= item.email %>
+                            </td>
+                            <td>
+                                <%= item.rollno %>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                    <% }) %>
+                        <% } %>
+        </table>
+    </body>
+
+    </html>

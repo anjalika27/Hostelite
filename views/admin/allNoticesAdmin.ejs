@@ -1,0 +1,43 @@
+<%- include('../partials/headers.ejs') %>
+
+    <body>
+        <h3 class="m-4">All Notices</h3>
+        <table class="table m-4 p-4" style="max-width: 1500px;margin: 2%;;">
+            <thead>
+                <tr>
+                    <th scope="col" >Sno.</th>
+                    <th scope="col" style="text-align: center;">Title</th>
+                    <th scope="col" style="text-align: center;">Text</th>
+                    <th scope="col" style="text-align: center;">Date</th>
+                    <th scope="col" style="text-align: center;">Delete</th>
+                </tr>
+            </thead>
+            <% if (locals.notices) { %>
+                <% notices.forEach((item,ind)=> { %>
+                    <tbody>
+                        <tr>
+                            <th scope="row">
+                                <%= ind + 1 %>
+                            </th>
+                            <td style="text-align: center;">
+                                <%= item.title %>
+                            </td>
+                            <td style="text-align: center;">
+                                <%= item.text %>
+                            </td>
+                            <td style="text-align: center;">
+                                <%= item.createdAt.toLocaleString() %>
+                            </td>
+                            <td style="text-align: center;">
+                                <a href=<%=`/admin/deleteNotice/${item._id}` %> style="text-decoration:
+                                    none;"><button>Delete</button></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                <% }) %>
+            <% } %>
+        </table>
+
+    </body>
+
+    </html>

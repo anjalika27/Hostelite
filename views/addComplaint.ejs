@@ -1,0 +1,32 @@
+<%- include('./partials/headers.ejs') %>
+
+    <body>
+        <%- include('./partials/nav.ejs') %>
+            <div class="container mx-4"
+                style="display: flex; flex-direction: row-reverse; justify-content:space-between;margin-top: 100px; ">
+
+                <%- include('./partials/sidebar.ejs') %>
+
+                    <div class="container">
+
+                        <h5 style="text-align: center;font-size: xxx-large;font-weight: bold;margin-top: 6%;">Register your
+                            complaint
+                            here</h5>
+
+                        <div class="container mt-3">
+                            <form class="col-6 mx-auto card p-3 shadow-lg" method="POST" action="/addComplaint">
+                                <div class="form-group" style="margin-top: 1%;">
+                                    <label>Complaint</label>
+                                    <textarea type="text" class="form-control" style="margin-top: 2%; border-radius: 2%;"
+                                        name="complaint" placeholder="Type..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="margin-top: 1.5%;">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+    </body>
+
+
+
+    <%- include('./partials/footer.ejs') %>

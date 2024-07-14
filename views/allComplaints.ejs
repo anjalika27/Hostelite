@@ -1,0 +1,37 @@
+<%- include('./partials/headers.ejs') %>
+
+    <body>
+        <%- include('./partials/nav.ejs') %>
+
+
+
+            <div class="container card-group" style="margin-top: 100px;max-width: 900px; border: 3px black;">
+
+                <% if (locals.complaints) { %>
+                    <% complaints.forEach((complaint)=>{ %>
+                        <div class="card m-4" style="border-radius: 3px;border-left: 2px;border-right: 2px;">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= complaint.status %>
+                                </h5>
+                                <p class="card-text">
+                                    <%= complaint.complaint %>
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted"><%= complaint.createdAt.toDateString() %></small>
+                            </div>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <h1 style="text-align: center;" class="mt-4">No Complaints made</h1>
+                <% } %>
+
+
+            </div>
+    </body>
+
+
+    <%- include('./partials/footer.ejs') %>
+
+        </html>
