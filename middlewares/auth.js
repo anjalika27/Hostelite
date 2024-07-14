@@ -7,7 +7,7 @@ export function checkAuthentication(req, res, next) {
         const userPayload = validateToken(token);
         req.user = userPayload;
     } catch (error) {
-
+        console.log('not got user');
     }
     return next()
 }

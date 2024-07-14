@@ -2,7 +2,7 @@ import bcrypt from "bcrypt"
 import UserDB from '../models/user.js'
 import { createToken, validateToken } from "../services/auth.js"
 
-async function signup(req, res) {
+export async function signup(req, res) {
     if (!req.body) return res.status(400).send('<h1 style="text-align: center;" class="mt-4">Not valid credentials</h1>')
     console.log(req.body);
     const { username, email, rollno, password } = req.body
@@ -23,7 +23,7 @@ async function signup(req, res) {
     }
 }
 
-async function login(req, res) {
+export async function login(req, res) {
 
     if (!req.body) return res.status(400).send('<h1 style="text-align: center;" class="mt-4">Not valid credentials</h1>')
 
@@ -47,8 +47,18 @@ async function login(req, res) {
 }
 
 
-async function logout(req, res) {
-    res.clearCookie('token').redirect('/signup')
+export async function logout(req, res) {
+    return res.clearCookie('token').redirect('/signup')
 }
 
-export { signup, login, logout }
+export async function getUserAccountDetails(req, res) {
+    if (!req.user) return res.status(200).redirect('/login')
+    try {
+        const _id = req.user._id
+        const currentStudent = await UserDB.findOne({ _id })
+        if (!currentStudent) return res.status(200).send('<h1 style="text-align: center;" class="mt-4">No Student found</h1>')
+        return res.status(200).render('userDetails.ejs', { user: req.user.username, student: currentStudent })
+    } catch (error) {
+        return res.status(500).send(`<h1 style="text-align: center; class="mt-4">${error.message}</h1>`)
+    }
+}

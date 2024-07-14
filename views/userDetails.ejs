@@ -1,0 +1,33 @@
+<%- include('./partials/headers.ejs') %>
+    <%- include('./partials/nav.ejs') %>
+
+        <div class="container"
+            style="margin:180px;margin-left: 100px;display: flex;flex-direction:column;align-items: center;">
+            <% if (locals.student) { %>
+                <div class="card-header"
+                    style="width: 31rem;background-color: rgb(37, 37, 115);color: aliceblue;text-align: center;font-size: x-large;border-radius: 8px;">
+                    STUDENT</div>
+                <div style="display: flex;margin-top: 7px;">
+                    <div class="card" style="width: 12.5rem;border-radius: 10px black;">
+                        <img class="card-img-top p-2" src="default.png" alt="Card image cap"
+                            style="width: 200px;height: 200px;">
+                    </div>
+                    <div class="card" style="width: 18rem; margin-left: 5px;">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><b>Name:</b>
+                                <%= student.username %>
+                            </li>
+                            <li class="list-group-item"><b>RollNo:</b>
+                                <%= student.rollno %>
+                            </li>
+                            <li class="list-group-item"><b>Email:</b>
+                                <%= student.email %>
+                            </li>
+                            <li class="list-group-item"><a href="/updateUser"><button
+                                        style="margin: 15px;margin-left: 70px; border-radius: 4px;">update
+                                        profile</button></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <% } %>
+        </div>
